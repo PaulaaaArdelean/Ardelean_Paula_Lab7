@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace Ardelean_Paula_Lab7.Models
 {
     using SQLite;
+    using SQLiteNetExtensions.Attributes;
+
     public class ShopList
     {
         [PrimaryKey, AutoIncrement]
@@ -14,5 +16,8 @@ namespace Ardelean_Paula_Lab7.Models
         [MaxLength(250), Unique]
         public string Description { get; set; }
         public DateTime Date { get; set; }
+
+        [ForeignKey(typeof(Shop))]
+        public int ShopID { get; set; }
     }
 }
